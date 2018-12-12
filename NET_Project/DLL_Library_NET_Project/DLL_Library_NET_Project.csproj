@@ -124,13 +124,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Acteur.cs" />
+    <Compile Include="Business\Action.cs" />
+    <Compile Include="Business\ActionScenario.cs" />
+    <Compile Include="Business\Mapper\ActeurMapper.cs" />
+    <Compile Include="Business\Mapper\ActionMapper.cs" />
+    <Compile Include="Business\Mapper\ActionScenarioMapper.cs" />
+    <Compile Include="Business\Mapper\ScenarioMapper.cs" />
+    <Compile Include="Business\Scenario.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Persistance\Context.cs" />
+    <Compile Include="Persistance\DAO\ActeurDAO.cs" />
+    <Compile Include="Persistance\DAO\ActionDAO.cs" />
+    <Compile Include="Persistance\DAO\ActionScenarioDAO.cs" />
+    <Compile Include="Persistance\DAO\ScenarioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ActeurService.cs" />
+    <Compile Include="Service\ActionScenarioService.cs" />
+    <Compile Include="Service\ActionService.cs" />
+    <Compile Include="Service\ScenarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
