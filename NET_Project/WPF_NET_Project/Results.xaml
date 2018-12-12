@@ -6,12 +6,25 @@
         xmlns:local="clr-namespace:WPF_NET_Project"
         mc:Ignorable="d"
         Title="Résultats" Height="450" Width="800" Closed="Results1_Closed">
+
     <Grid>
-        <Button Content="Pause" VerticalAlignment="Top" FontSize="16" Margin="19,19,0,0" Height="29" HorizontalAlignment="Left" Width="100"/>
-        <Button Content="Reprise" VerticalAlignment="Top" FontSize="16" Margin="19,65,0,0" Height="29" HorizontalAlignment="Left" Width="100
-                "/>
-        <Border BorderBrush="#FFBFBFBF" BorderThickness="1" Margin="140,0,0,0">
-            <TextBox x:Name="Results_Textbox" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="1,1,-1,-1" FontSize="16" ScrollViewer.CanContentScroll="True" Background="White" Foreground="White" SelectionBrush="Black"/>
-        </Border>
+        <Button Content="Connexion" HorizontalAlignment="Left" Margin="10,205,0,0" VerticalAlignment="Top" Width="234" />
+        <Label Content="Adresse" HorizontalAlignment="Left" Height="27" Margin="10,10,0,0" VerticalAlignment="Top" Width="326"/>
+        <Label Content="Port" HorizontalAlignment="Left" Height="27" Margin="10,70,0,0" VerticalAlignment="Top" Width="234"/>
+        <Label Content="Login" HorizontalAlignment="Left" Height="27" Margin="10,130,0,0" VerticalAlignment="Top" Width="234"/>
+        <TextBox x:Name="serverHost" HorizontalAlignment="Left" Height="23" Margin="10,42,0,0" TextWrapping="Wrap" Text="127.0.0.1" VerticalAlignment="Top" Width="234"/>
+        <TextBox x:Name="serverPort" HorizontalAlignment="Left" Height="23" Margin="10,102,0,0" TextWrapping="Wrap" Text="8888" VerticalAlignment="Top" Width="234"/>
+        <TextBox x:Name="serverLogin" HorizontalAlignment="Left" Height="23" Margin="10,162,0,0" TextWrapping="Wrap" Text="Romain" VerticalAlignment="Top" Width="234"/>
+        <Button Content="Envoyer" HorizontalAlignment="Left" Margin="10,388,0,0" VerticalAlignment="Top" Width="234" />
+
+        <Grid Margin="274,16,23,10">
+            <ScrollViewer Name="Scroller" Margin="0,0,0,0" Background="#FF000128" VerticalScrollBarVisibility="Visible" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="messageBox" Foreground="White" FontFamily="Consolas" Padding="10" MinHeight="379" Text="&gt; Bienvenue !" Height="443" TextWrapping="Wrap" Width="462" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <TextBox x:Name="messageToSend" HorizontalAlignment="Left" Height="136" Margin="10,247,0,0" TextWrapping="Wrap" Text="Message de test" VerticalAlignment="Top" Width="234"/>
+        <ComboBox x:Name="securitySelect" HorizontalAlignment="Left" Margin="10,415,0,0" VerticalAlignment="Top" Width="234"/>
     </Grid>
 </Window>

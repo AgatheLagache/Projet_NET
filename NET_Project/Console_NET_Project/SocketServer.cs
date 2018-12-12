@@ -25,17 +25,32 @@ namespace Console_NET_Project
                 serverSocket.Start();
                 Console.WriteLine("Connection au serveur réussi");
 
+                // BUFFER FOR READING DATA
+                Byte[] bytes = new Byte[256];
+                String data = null;
+
+
                 while (true)
-                {
-                    
+                {                 
                     TcpClient client = serverSocket.AcceptTcpClient();
+                    NetworkStream stream = client.GetStream();
 
-                    Client user = new Client(client);
+                    int i;
+                    while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
+                    {
+                        byte[] msg;
 
-                    Thread thread = new Thread(() => user.Communication());
-                    thread.Start();
+                        // CONVERT DATA BYTES TO ASCII STRING.
+                        data = Encoding.ASCII.GetString(bytes, 0, i);
+                        Console.WriteLine("IN: {0}", data);
+
+
+                        string messageRetour = "message retour";
+                        stream.Write(Encoding.ASCII.GetBytes(messageRetour), 0, messageRetour.Length);
+                    }
+
+                    client.Close();
                     Console.WriteLine("cc le client");
-
                 }
             }
             catch (Exception error)

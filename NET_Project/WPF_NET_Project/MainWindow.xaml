@@ -21,7 +21,7 @@
         <Button x:Name="Nb_Clients_Random" Content="Valeur aléatoire" Margin="589,60,20,0" VerticalAlignment="Top" FontSize="16" Click="Nb_Clients_Random_Click" Height="94"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="20,170,0,0" TextWrapping="Wrap" Text="Nombre de serveurs :" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="Nb_Waiters_Choice" Height="23" Margin="189,170,0,0" TextWrapping="Wrap" Text="Saisissez un nombre entre 1 et 100..." VerticalAlignment="Top" FontSize="16" KeyDown="Nb_Waiters_Choice_KeyDown" HorizontalAlignment="Left" Width="380"/>
+        <TextBox x:Name="Nb_Waiters_Choice" Height="23" Margin="189,170,0,0" TextWrapping="Wrap" Text="Saisissez un nombre entre 1 et 100..." VerticalAlignment="Top" FontSize="16" KeyDown="Nb_Waiters_Choice_KeyDown" HorizontalAlignment="Left" Width="380" />
         <Button x:Name="Nb_Waiters_Random" Content="Valeur aléatoire" Margin="589,170,20,0" VerticalAlignment="Top" FontSize="16" Click="Nb_Waiters_Random_Click"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="20,210,0,0" TextWrapping="Wrap" Text="Nombre de cuisiniers :" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
