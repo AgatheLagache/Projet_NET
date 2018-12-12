@@ -38,7 +38,7 @@ namespace WPF_NET_Project
             thread.RunWorkerCompleted += Thread_RunWorkerCompleted;
 
 
-            MessageAdd(new Message { Text = "Connexion au serveur...", Color = Brushes.Red, Author = "Client" });
+            MessageAdd(new Message { Text = "Connexion au serveur...", Color = Brushes.White});
             clientSocket.Connect("127.0.0.1", 8888);
             serverStream = clientSocket.GetStream();
 
@@ -90,7 +90,7 @@ namespace WPF_NET_Project
 
         private void MessageAdd(Message message)
         {
-            Run newLine = new Run("> " + DateTime.Now.ToString("T") + " [" + message.Author + "] " + message.Text + "\n") { Foreground = message.Color };
+            Run newLine = new Run("> " /*+ DateTime.Now.ToString("T") + " ["*/ + message.Author + /*"] " +*/ message.Text + "\n") { Foreground = message.Color };
             messageBox.Inlines.InsertBefore(messageBox.Inlines.FirstInline, newLine);
         }
 

@@ -63,6 +63,11 @@ namespace WPF_NET_Project
             Results results = new Results();
             results.Show();
 
+            Start_Simulation.IsEnabled = false;
+            Scenario_Random.IsEnabled = false;
+            Nb_Clients_Random.IsEnabled = false;
+            Nb_Cooks_Random.IsEnabled = false;
+            Nb_Waiters_Random.IsEnabled = false;
         }
 
         private void Nb_Clients_Random_Click(object sender, RoutedEventArgs e)
