@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,6 +22,10 @@ namespace WPF_NET_Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        private BackgroundWorker thread;
+        NetworkStream serverStream = default(NetworkStream);
+        TcpClient clientSocket = new TcpClient();
+
         Results results = new Results();
         Random nb_random = new Random();
         int Nb_Fast_Clients = 1;
@@ -31,6 +37,7 @@ namespace WPF_NET_Project
         public MainWindow()
         {
             InitializeComponent();
+            thread = new BackgroundWorker();
         }
 
         private void Start_Simulation_Click(object sender, RoutedEventArgs e)
@@ -51,7 +58,11 @@ namespace WPF_NET_Project
             }
             //Results results = new Results();
             //results.Show();
-            results.GetResults();
+            //results.GetResults();
+            clientSocket.Connect("127.0.0.1", int.Parse("8888"));
+            serverStream = clientSocket.GetStream();
+
+            thread.RunWorkerAsync();
         }
 
         private void Nb_Clients_Random_Click(object sender, RoutedEventArgs e)
