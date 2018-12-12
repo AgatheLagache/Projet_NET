@@ -63,6 +63,7 @@ namespace WPF_NET_Project
             serverStream = clientSocket.GetStream();
 
             thread.RunWorkerAsync();
+            Start_Simulation.IsEnabled = false;
         }
 
         private void Nb_Clients_Random_Click(object sender, RoutedEventArgs e)

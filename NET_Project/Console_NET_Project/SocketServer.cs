@@ -27,12 +27,15 @@ namespace Console_NET_Project
 
                 while (true)
                 {
+                    
                     TcpClient client = serverSocket.AcceptTcpClient();
 
                     Client user = new Client(client);
 
                     Thread thread = new Thread(() => user.Communication());
                     thread.Start();
+                    Console.WriteLine("cc le client");
+
                 }
             }
             catch (Exception error)

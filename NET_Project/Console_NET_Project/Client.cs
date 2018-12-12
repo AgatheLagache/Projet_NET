@@ -18,6 +18,7 @@ namespace Console_NET_Project
         public void Communication()
         {
             NetworkStream stream = client.GetStream();
+
             client.Close();
         }
     }
