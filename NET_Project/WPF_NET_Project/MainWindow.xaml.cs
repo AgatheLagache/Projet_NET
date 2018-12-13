@@ -1,19 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPF_NET_Project
 {
@@ -33,6 +20,8 @@ namespace WPF_NET_Project
         int Nb_Slow_Clients = 1;
         int Nb_Waiters = 1;
         int Nb_Cooks = 1;
+
+
 
         public MainWindow()
         {
