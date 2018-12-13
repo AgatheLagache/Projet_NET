@@ -12,10 +12,12 @@ namespace Console_NET_Project.Model
 
         private bool isAvailable;
 
-        List<Table> listTable = new List<Table>();
+        List<Table> listTable;
 
         Table(int nbPlace, bool isAvailable)
         {
+            /* faire la création des tables une par une en leur ajoutant les attributs respectifs et ensuite stocker les tables dans la liste */
+            listTable = new List<Table>();
             this.SetNbPlace(nbPlace);
             this.SetAvailability(isAvailable);
         }

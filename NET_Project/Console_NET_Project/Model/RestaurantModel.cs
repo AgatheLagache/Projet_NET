@@ -10,7 +10,8 @@ namespace Console_NET_Project.Model
     {
         public RestaurantModel()
         {
-
+            /* envoyer les param dans la classe Person afin de les instancier */
+            /* lancer l'instanciation des tables de la classe table */
         }
     }
 }

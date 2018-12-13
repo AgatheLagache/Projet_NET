@@ -11,15 +11,20 @@ namespace Console_NET_Project.Model.People
 {
     public class Person
     {
-        List<GroupCustomer> listGroupCustomer;
-        List<HeadWaiter> listHeadWaiter;
-        List<Waiter> listWaiter;
-        MaitreHotel maitreHotel;
-        Chef chef;
-        List<CommisChef> listCommisChef;
-        List<Cook> listCook;
+        public List<GroupCustomer> listGroupCustomer;
+        public List<HeadWaiter> listHeadWaiter;
+        public List<Waiter> listWaiter;
+        public MaitreHotel maitreHotel;
+        public Chef chef;
+        public List<CommisChef> listCommisChef;
+        public List<Cook> listCook;
+
+        public bool IsBusy { get; set; } = true;
         public Person()
         {
+            /* faire des for each pour remplir les listes en fonctions du paramètre envoyé et leur attribué un état busy pour chaque personne */
+            /* pour les groupes clients il faut leur attribuer le numéro de table et leur etat */
+
             listGroupCustomer = new List<GroupCustomer>();
             listHeadWaiter = new List<HeadWaiter>();
             maitreHotel = MaitreHotel.Instance();
