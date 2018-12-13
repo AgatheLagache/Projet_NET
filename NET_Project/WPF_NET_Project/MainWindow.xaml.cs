@@ -62,12 +62,7 @@ namespace WPF_NET_Project
             Param.nb_waiters = Nb_Waiters;
             Results results = new Results();
             results.Show();
-
-            Start_Simulation.IsEnabled = false;
-            Scenario_Random.IsEnabled = false;
-            Nb_Clients_Random.IsEnabled = false;
-            Nb_Cooks_Random.IsEnabled = false;
-            Nb_Waiters_Random.IsEnabled = false;
+            MainWindow1.IsEnabled = false;
         }
 
         private void Nb_Clients_Random_Click(object sender, RoutedEventArgs e)
