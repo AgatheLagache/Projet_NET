@@ -17,20 +17,13 @@ namespace WPF_NET_Project
         //NetworkStream serverStream = default(NetworkStream);
         //TcpClient clientSocket = new TcpClient();
 
-        Random nb_random = new Random();
-        int Nb_Fast_Clients = 1;
-        int Nb_Ordinary_Clients = 1;
-        int Nb_Slow_Clients = 1;
-        int Nb_Waiters = 1;
-        int Nb_Cooks = 1;
-        //Results results = new Results();
         private Random nb_random = new Random();
-
         private int Nb_Fast_Clients = 1;
         private int Nb_Ordinary_Clients = 1;
         private int Nb_Slow_Clients = 1;
         private int Nb_Waiters = 1;
         private int Nb_Cooks = 1;
+        //Results results = new Results();
 
         public MainWindow()
         {
