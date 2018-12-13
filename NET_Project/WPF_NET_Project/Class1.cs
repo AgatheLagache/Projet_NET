@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_NET_Project
+namespace DLL_Library_NET_Project
 {
-    class Program
+    public class Class1
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

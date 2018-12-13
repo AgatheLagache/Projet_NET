@@ -1,19 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPF_NET_Project
 {
@@ -22,11 +9,11 @@ namespace WPF_NET_Project
     /// </summary>
     public partial class MainWindow : Window
     {
-        private BackgroundWorker thread;
-        NetworkStream serverStream = default(NetworkStream);
-        TcpClient clientSocket = new TcpClient();
+        //private BackgroundWorker thread;
+        //NetworkStream serverStream = default(NetworkStream);
+        //TcpClient clientSocket = new TcpClient();
 
-        Results results = new Results();
+        //Results results = new Results();
         Random nb_random = new Random();
         int Nb_Fast_Clients = 1;
         int Nb_Ordinary_Clients = 1;
@@ -34,11 +21,80 @@ namespace WPF_NET_Project
         int Nb_Waiters = 1;
         int Nb_Cooks = 1;
 
+
+
         public MainWindow()
         {
             InitializeComponent();
-            thread = new BackgroundWorker();
+            //thread = new BackgroundWorker();
         }
+
+
+        ///* déclaration du model restaurant de l'interface IRestaurantModel */
+        //private IRestaurantModel restaurantModel;
+
+        ///* déclaration de la vue restaurant de l'interface IRestaurantView */
+        //private IRestaurantView restaurantView;
+        //private IScenario scenario;
+
+        ///* Instancie un nouveau controleur du restaurant */
+        //public RestaurantController(IRestaurantModel restaurantModel, IRestaurantView restaurantView)
+        //{
+        //    this.setRestaurantView(restaurantView);
+        //    this.setRestaurantModel(restaurantModel);
+        //}
+
+        ///* Récupère le model du restaurant et le retourne */
+        //public IRestaurantModel getRestaurantModel()
+        //{
+        //    return this.restaurantModel;
+        //}
+
+        ///* Attribue la valeur du model */
+        //private void setRestaurantModel(IRestaurantModel model)
+        //{
+        //    this.restaurantModel = model;
+        //}
+
+        ///* Récupère la vue du restaurant et la retourne */
+        //public IRestaurantView getRestaurantView()
+        //{
+        //    return this.restaurantView;
+        //}
+
+        ///* Attribue la valeur de la vue */
+        //private void setRestaurantView(IRestaurantView view)
+        //{
+        //    this.restaurantView = view;
+        //}
+
+        ///* Lance la méthode initializeScenario qui permet de choisir un scnario */
+        //public void startScenario()
+        //{
+        //    scenario.initializeScenario(1);
+        //}
+
+        ///*  */
+        //public void play()
+        //{
+        //    this.startScenario();
+        //}
+
+        ///*  */
+        //public void pause()
+        //{
+
+        //}
+
+        ///*  */
+        //public void replay()
+        //{
+
+        //}
+
+        //public void speedUp()
+        //{
+        //}
 
         private void Start_Simulation_Click(object sender, RoutedEventArgs e)
         {
@@ -58,11 +114,16 @@ namespace WPF_NET_Project
             }
             //Results results = new Results();
             //results.Show();
-            //results.GetResults();
-            clientSocket.Connect("127.0.0.1", int.Parse("8888"));
-            serverStream = clientSocket.GetStream();
 
-            thread.RunWorkerAsync();
+            Param.nb_waiters = Nb_Waiters;
+            Results results = new Results();
+            results.Show();
+
+            Start_Simulation.IsEnabled = false;
+            Scenario_Random.IsEnabled = false;
+            Nb_Clients_Random.IsEnabled = false;
+            Nb_Cooks_Random.IsEnabled = false;
+            Nb_Waiters_Random.IsEnabled = false;
         }
 
         private void Nb_Clients_Random_Click(object sender, RoutedEventArgs e)
@@ -143,5 +204,6 @@ namespace WPF_NET_Project
         {
             Environment.Exit(1);
         }
+
     }
 }
