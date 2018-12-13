@@ -23,8 +23,8 @@ namespace WPF_NET_Project
     public partial class Results : Window
     {
         private BackgroundWorker thread;
-        NetworkStream serverStream = default(NetworkStream);
-        TcpClient clientSocket = new TcpClient();
+        private NetworkStream serverStream = default(NetworkStream);
+        private TcpClient clientSocket = new TcpClient();
 
         public Results()
         {
@@ -37,8 +37,7 @@ namespace WPF_NET_Project
             thread.ProgressChanged += Thread_ProgressChanged;
             thread.RunWorkerCompleted += Thread_RunWorkerCompleted;
 
-
-            MessageAdd(new Message { Text = "Connexion au serveur...", Color = Brushes.White});
+            MessageAdd(new Message { Text = "Connexion au serveur...", Color = Brushes.White });
             clientSocket.Connect("127.0.0.1", 8888);
             serverStream = clientSocket.GetStream();
 
@@ -53,6 +52,7 @@ namespace WPF_NET_Project
             //clientSocket.Connect("127.0.0.1", int.Parse("8888"));
             //serverStream = clientSocket.GetStream();
         }
+
         private void Thread_DoWork(object sender, DoWorkEventArgs e)
         {
             Byte[] bytes = new Byte[256];
@@ -65,7 +65,6 @@ namespace WPF_NET_Project
                 {
                     string message = Encoding.ASCII.GetString(bytes, 0, i);
                     Dictionary<string, string> paramList = message.Split('&').Select(m => m.Split('|')).ToDictionary(m => m.FirstOrDefault(), m => m.Skip(1).FirstOrDefault());
-                    
 
                     worker.ReportProgress(0, new Message
                     {

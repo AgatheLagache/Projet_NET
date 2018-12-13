@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DLL_Library_NET_Project;
+using DLL_Library_NET_Project.Business;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
@@ -14,21 +18,25 @@ namespace WPF_NET_Project
         //TcpClient clientSocket = new TcpClient();
 
         //Results results = new Results();
-        Random nb_random = new Random();
-        int Nb_Fast_Clients = 1;
-        int Nb_Ordinary_Clients = 1;
-        int Nb_Slow_Clients = 1;
-        int Nb_Waiters = 1;
-        int Nb_Cooks = 1;
+        private Random nb_random = new Random();
 
-
+        private int Nb_Fast_Clients = 1;
+        private int Nb_Ordinary_Clients = 1;
+        private int Nb_Slow_Clients = 1;
+        private int Nb_Waiters = 1;
+        private int Nb_Cooks = 1;
 
         public MainWindow()
         {
             InitializeComponent();
+            List<Scenario> scenarioList = History.GetAllScenarioFromDB();
+            Scenario_Choice.ItemsSource = scenarioList;
+            Scenario_Choice.SelectedItem = scenarioList.First();
+            //Scenario_Choice.SelectedItem = scenarioList.Last();
+            //Scenario_Choice.SelectedItem = scenarioList.Where(i => i.id == 2).FirstOrDefault();
+            Scenario_Choice.DisplayMemberPath = "titre";
             //thread = new BackgroundWorker();
         }
-
 
         ///* déclaration du model restaurant de l'interface IRestaurantModel */
         //private IRestaurantModel restaurantModel;
@@ -83,13 +91,11 @@ namespace WPF_NET_Project
         ///*  */
         //public void pause()
         //{
-
         //}
 
         ///*  */
         //public void replay()
         //{
-
         //}
 
         //public void speedUp()
@@ -104,7 +110,6 @@ namespace WPF_NET_Project
                 && int.TryParse(Nb_Waiters_Choice.Text, out Nb_Waiters)
                 && int.TryParse(Nb_Cooks_Choice.Text, out Nb_Cooks))
             {
-
             }
             else
             {
@@ -147,7 +152,6 @@ namespace WPF_NET_Project
         {
             if (int.TryParse(Entered_Value, out Destination_Value))
             {
-
             }
             else
             {
@@ -197,13 +201,11 @@ namespace WPF_NET_Project
 
         private void Scenario_Random_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void MainWindow1_Closed(object sender, EventArgs e)
         {
             Environment.Exit(1);
         }
-
     }
 }

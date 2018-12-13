@@ -1,10 +1,12 @@
-﻿using System;
+﻿using DLL_Library_NET_Project.Business;
+using DLL_Library_NET_Project.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_NET_Project.Model
+namespace DLL_Library_NET_Project
 {
     public class History
     {
@@ -35,6 +37,14 @@ namespace Console_NET_Project.Model
         public void SetScenario(int numberScenario)
         {
             this.scenario = numberScenario;
+        }
+
+        public static List<Scenario> GetAllScenarioFromDB()
+        {
+            ScenarioService scenarioService;
+            scenarioService = new ScenarioService();
+            List<Scenario> scenarioList = scenarioService.Get();
+            return scenarioList;
         }
     }
 }
