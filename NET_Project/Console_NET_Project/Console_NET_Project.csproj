@@ -44,10 +44,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SocketServer.cs" />
+    <Compile Include="Model\People\DinnerRoom\Commis.cs" />
+    <Compile Include="Model\People\DinnerRoom\Customer.cs" />
+    <Compile Include="Model\People\DinnerRoom\GroupCustomer.cs" />
+    <Compile Include="Model\People\DinnerRoom\HeadWaiter.cs" />
+    <Compile Include="Model\People\DinnerRoom\MaitreHotel.cs" />
+    <Compile Include="Model\People\DinnerRoom\Waiter.cs" />
+    <Compile Include="Model\People\Kitchen\Chef.cs" />
+    <Compile Include="Model\People\Kitchen\CommisChef.cs" />
+    <Compile Include="Model\People\Kitchen\Cook.cs" />
+    <Compile Include="Model\People\Person.cs" />
+    <Compile Include="Model\RestaurantModel.cs" />
+    <Compile Include="Model\Table.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DLL_Library_NET_Project\DLL_Library_NET_Project.csproj">
+      <Project>{fc8b6b9d-c2e8-44af-bc04-923dca22c79d}</Project>
+      <Name>DLL_Library_NET_Project</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
