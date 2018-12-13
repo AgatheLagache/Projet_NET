@@ -43,17 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\History.cs" />
-    <Compile Include="Model\Person\DinnerRoom\Commis.cs" />
-    <Compile Include="Model\Person\DinnerRoom\Customer.cs" />
-    <Compile Include="Model\Person\DinnerRoom\GroupCustomer.cs" />
-    <Compile Include="Model\Person\DinnerRoom\HeadWaiter.cs" />
-    <Compile Include="Model\Person\DinnerRoom\MaitreHotel.cs" />
-    <Compile Include="Model\Person\DinnerRoom\Waiter.cs" />
-    <Compile Include="Model\Person\Kitchen\Chef.cs" />
-    <Compile Include="Model\Person\Kitchen\CommisChef.cs" />
-    <Compile Include="Model\Person\Kitchen\Cook.cs" />
-    <Compile Include="Model\Person\Person.cs" />
+    <Compile Include="Model\People\DinnerRoom\Commis.cs" />
+    <Compile Include="Model\People\DinnerRoom\Customer.cs" />
+    <Compile Include="Model\People\DinnerRoom\GroupCustomer.cs" />
+    <Compile Include="Model\People\DinnerRoom\HeadWaiter.cs" />
+    <Compile Include="Model\People\DinnerRoom\MaitreHotel.cs" />
+    <Compile Include="Model\People\DinnerRoom\Waiter.cs" />
+    <Compile Include="Model\People\Kitchen\Chef.cs" />
+    <Compile Include="Model\People\Kitchen\CommisChef.cs" />
+    <Compile Include="Model\People\Kitchen\Cook.cs" />
+    <Compile Include="Model\People\Person.cs" />
     <Compile Include="Model\RestaurantModel.cs" />
     <Compile Include="Model\Table.cs" />
     <Compile Include="Program.cs" />

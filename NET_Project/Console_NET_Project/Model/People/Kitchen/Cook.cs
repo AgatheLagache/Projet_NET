@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_NET_Project.Model.Person.Kitchen
+namespace Console_NET_Project.Model.People.Kitchen
 {
-    public class Cook
+    public class Cook : Person
     {
         public Cook()
         {

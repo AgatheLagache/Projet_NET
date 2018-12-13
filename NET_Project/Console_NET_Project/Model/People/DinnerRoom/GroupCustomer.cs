@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Console_NET_Project.Model.People;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Console_NET_Project.Model.DinnerRoom
 {
-    public class GroupCustomer
+    public class GroupCustomer : Person
     {
         List<Customer> groupCustomer;
 

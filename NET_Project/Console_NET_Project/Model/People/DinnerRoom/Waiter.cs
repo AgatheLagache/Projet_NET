@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_NET_Project.Model.Person.DinnerRoom
+namespace Console_NET_Project.Model.People.DinnerRoom
 {
-    public class Waiter
+    public class Waiter : Person
     {
         public Waiter()
         {
