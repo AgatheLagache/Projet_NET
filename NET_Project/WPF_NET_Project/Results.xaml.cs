@@ -70,7 +70,7 @@ namespace WPF_NET_Project
                     worker.ReportProgress(0, new Message
                     {
                         Text = "cc",
-                        Color = Brushes.Green
+                        Color = Brushes.White
                     });
                 }
                 Thread.Sleep(1000);
@@ -79,7 +79,7 @@ namespace WPF_NET_Project
 
         private void Thread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            MessageAdd(new Message { Text = "Ciao !", Color = Brushes.Orange, Author = "Client" });
+            MessageAdd(new Message { Text = "Connexion au serveur terminée.", Color = Brushes.White/*, Author = "Client"*/ });
         }
 
         private void Thread_ProgressChanged(object sender, ProgressChangedEventArgs e)
