@@ -39,7 +39,7 @@ namespace DLL_Library_NET_Project.Service
             if (entity != null)
             {
                 entity.description = action.description;
-                //entity.id_Acteur = action.Acteur;
+                //entity.acteurId = action.Acteur;
                 context.SaveChanges();
             }
         }
@@ -54,9 +54,9 @@ namespace DLL_Library_NET_Project.Service
             return (from c in context.Action where c.id == id select ActionMapper.Map(c)).FirstOrDefault();
         }
 
-        public List<Action> GetByActeurId(int id_act)
+        public List<Action> GetByActeurId(int id)
         {
-            return (from c in context.Action.Include(i => i.Acteur) where c.acteurId == id_act select ActionMapper.Map(c)).ToList();
+            return (from c in context.Action.Include(i => i.Acteur) where c.acteurId == id select ActionMapper.Map(c)).ToList();
         }
     }
 }

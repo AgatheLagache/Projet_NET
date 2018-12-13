@@ -19,5 +19,7 @@ namespace DLL_Library_NET_Project.Persistance
         public DbSet<ActionDAO> Action { get; set; }
         public DbSet<ScenarioDAO> Scenario { get; set; }
         public DbSet<ActionScenarioDAO> ActionScenario { get; set; }
+        public DbSet<RecetteDAO> Recette { get; set; }
+        public DbSet<TypeRecetteDAO> TypeRecette { get; set; }
     }
 }
