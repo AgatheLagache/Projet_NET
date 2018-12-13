@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SocketServer.cs" />
     <Compile Include="Model\People\DinnerRoom\Commis.cs" />
     <Compile Include="Model\People\DinnerRoom\Customer.cs" />
     <Compile Include="Model\People\DinnerRoom\GroupCustomer.cs" />

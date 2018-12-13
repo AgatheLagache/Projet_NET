@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPF_NET_Project
 {
@@ -20,7 +9,11 @@ namespace WPF_NET_Project
     /// </summary>
     public partial class MainWindow : Window
     {
-        Results results = new Results();
+        //private BackgroundWorker thread;
+        //NetworkStream serverStream = default(NetworkStream);
+        //TcpClient clientSocket = new TcpClient();
+
+        //Results results = new Results();
         Random nb_random = new Random();
         int Nb_Fast_Clients = 1;
         int Nb_Ordinary_Clients = 1;
@@ -28,9 +21,12 @@ namespace WPF_NET_Project
         int Nb_Waiters = 1;
         int Nb_Cooks = 1;
 
+
+
         public MainWindow()
         {
             InitializeComponent();
+            //thread = new BackgroundWorker();
         }
 
 
@@ -118,7 +114,16 @@ namespace WPF_NET_Project
             }
             //Results results = new Results();
             //results.Show();
-            results.GetResults();
+
+            Param.nb_waiters = Nb_Waiters;
+            Results results = new Results();
+            results.Show();
+
+            Start_Simulation.IsEnabled = false;
+            Scenario_Random.IsEnabled = false;
+            Nb_Clients_Random.IsEnabled = false;
+            Nb_Cooks_Random.IsEnabled = false;
+            Nb_Waiters_Random.IsEnabled = false;
         }
 
         private void Nb_Clients_Random_Click(object sender, RoutedEventArgs e)

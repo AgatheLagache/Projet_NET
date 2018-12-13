@@ -8,10 +8,7 @@
         Title="Résultats" Height="450" Width="800" Closed="Results1_Closed">
     <Grid>
         <Button Content="Pause" VerticalAlignment="Top" FontSize="16" Margin="19,19,0,0" Height="29" HorizontalAlignment="Left" Width="100"/>
-        <Button Content="Reprise" VerticalAlignment="Top" FontSize="16" Margin="19,65,0,0" Height="29" HorizontalAlignment="Left" Width="100
-                "/>
-        <Border BorderBrush="#FFBFBFBF" BorderThickness="1" Margin="140,0,0,0">
-            <TextBox x:Name="Results_Textbox" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="1,1,-1,-1" FontSize="16" ScrollViewer.CanContentScroll="True" Background="White" Foreground="White" SelectionBrush="Black"/>
-        </Border>
+        <Button Content="Reprise" VerticalAlignment="Top" FontSize="16" Margin="19,65,0,0" Height="29" HorizontalAlignment="Left" Width="100"/>
+        <TextBlock x:Name="messageBox" Foreground="White" Padding="10" MinHeight="379" TextWrapping="Wrap" Margin="147,0,0,0" Background="Black" FontSize="16" Text="&gt; Affichage des résultats..." />
     </Grid>
 </Window>
