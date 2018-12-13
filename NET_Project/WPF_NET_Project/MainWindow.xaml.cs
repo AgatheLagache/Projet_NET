@@ -17,6 +17,12 @@ namespace WPF_NET_Project
         //NetworkStream serverStream = default(NetworkStream);
         //TcpClient clientSocket = new TcpClient();
 
+        Random nb_random = new Random();
+        int Nb_Fast_Clients = 1;
+        int Nb_Ordinary_Clients = 1;
+        int Nb_Slow_Clients = 1;
+        int Nb_Waiters = 1;
+        int Nb_Cooks = 1;
         //Results results = new Results();
         private Random nb_random = new Random();
 
@@ -117,18 +123,11 @@ namespace WPF_NET_Project
                 Nb_Waiters_Random_Click(sender, e);
                 Nb_Cooks_Random_Click(sender, e);
             }
-            //Results results = new Results();
-            //results.Show();
 
             Param.nb_waiters = Nb_Waiters;
             Results results = new Results();
             results.Show();
-
-            Start_Simulation.IsEnabled = false;
-            Scenario_Random.IsEnabled = false;
-            Nb_Clients_Random.IsEnabled = false;
-            Nb_Cooks_Random.IsEnabled = false;
-            Nb_Waiters_Random.IsEnabled = false;
+            MainWindow1.IsEnabled = false;
         }
 
         private void Nb_Clients_Random_Click(object sender, RoutedEventArgs e)

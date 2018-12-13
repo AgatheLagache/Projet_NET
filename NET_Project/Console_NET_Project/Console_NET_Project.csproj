@@ -56,7 +56,6 @@
     <Compile Include="Model\People\Person.cs" />
     <Compile Include="Model\RestaurantModel.cs" />
     <Compile Include="Model\Table.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
