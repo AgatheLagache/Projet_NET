@@ -29,4 +29,5 @@ namespace Console_NET_Project.Model.People
             listCook = new List<Cook>();
         }
     }
+    /**/
 }
