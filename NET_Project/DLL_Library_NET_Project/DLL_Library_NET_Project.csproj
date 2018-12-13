@@ -130,20 +130,28 @@
     <Compile Include="Business\Mapper\ActeurMapper.cs" />
     <Compile Include="Business\Mapper\ActionMapper.cs" />
     <Compile Include="Business\Mapper\ActionScenarioMapper.cs" />
+    <Compile Include="Business\Mapper\RecetteMapper.cs" />
     <Compile Include="Business\Mapper\ScenarioMapper.cs" />
+    <Compile Include="Business\Mapper\TypeRecetteMapper.cs" />
+    <Compile Include="Business\Recette.cs" />
     <Compile Include="Business\Scenario.cs" />
+    <Compile Include="Business\TypeRecette.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Persistance\Context.cs" />
     <Compile Include="Persistance\DAO\ActeurDAO.cs" />
     <Compile Include="Persistance\DAO\ActionDAO.cs" />
     <Compile Include="Persistance\DAO\ActionScenarioDAO.cs" />
+    <Compile Include="Persistance\DAO\RecetteDAO.cs" />
     <Compile Include="Persistance\DAO\ScenarioDAO.cs" />
+    <Compile Include="Persistance\DAO\TypeRecetteDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ActeurService.cs" />
     <Compile Include="Service\ActionScenarioService.cs" />
     <Compile Include="Service\ActionService.cs" />
+    <Compile Include="Service\RecetteService.cs" />
     <Compile Include="Service\ScenarioService.cs" />
+    <Compile Include="Service\TypeRecetteService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
