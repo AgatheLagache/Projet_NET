@@ -10,6 +10,7 @@ namespace DLL_Library_NET_Project.Business.Mapper
         {
             return new ActionScenarioDAO
             {
+                id = value.id,
                 ordre = value.ordre,
                 actionId = ActionMapper.Map(value.Action).id,
                 scenarioId = ScenarioMapper.Map(value.Scenario).id
@@ -20,6 +21,7 @@ namespace DLL_Library_NET_Project.Business.Mapper
         {
             return new ActionScenario
             {
+                id = value.id,
                 ordre = value.ordre,
                 Action = ActionMapper.Map(value.Action),
                 Scenario = ScenarioMapper.Map(value.Scenario)

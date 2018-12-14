@@ -41,8 +41,6 @@ namespace DLL_Library_NET_Project.Service
                 entity.intitule = recette.intitule;
                 entity.prix = recette.prix;
                 entity.temps_prepa = recette.temps_prepa;
-                entity.temps_cuiss = recette.temps_cuiss;
-                entity.temps_repos = recette.temps_repos;
                 //entity.typerecetteId = recette.TypeRecette;
                 context.SaveChanges();
             }

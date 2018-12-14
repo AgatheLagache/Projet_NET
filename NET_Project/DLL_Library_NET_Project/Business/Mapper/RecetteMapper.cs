@@ -14,8 +14,6 @@ namespace DLL_Library_NET_Project.Business.Mapper
                 intitule = value.intitule,
                 prix = value.prix,
                 temps_prepa = value.temps_prepa,
-                temps_cuiss = value.temps_cuiss,
-                temps_repos = value.temps_repos,
                 typerecetteId = TypeRecetteMapper.Map(value.TypeRecette).id
             };
         }
@@ -28,8 +26,6 @@ namespace DLL_Library_NET_Project.Business.Mapper
                 intitule = value.intitule,
                 prix = value.prix,
                 temps_prepa = value.temps_prepa,
-                temps_cuiss = value.temps_cuiss,
-                temps_repos = value.temps_repos,
                 TypeRecette = TypeRecetteMapper.Map(value.TypeRecette)
             };
         }

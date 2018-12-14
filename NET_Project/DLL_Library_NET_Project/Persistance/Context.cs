@@ -7,12 +7,11 @@ namespace DLL_Library_NET_Project.Persistance
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-MO9QGPH;Database=net_project_db;User Id=sa;Password=root;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer(@"Server=tcp:axelnl.database.windows.net,1433;Initial Catalog=net_project_db;Persist Security Info=False;User ID=AxelNL;Password=MDPserv.cesi16;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ActionScenarioDAO>().HasKey(i => new { i.actionId, i.scenarioId });
         }
 
         public DbSet<ActeurDAO> Acteur { get; set; }
