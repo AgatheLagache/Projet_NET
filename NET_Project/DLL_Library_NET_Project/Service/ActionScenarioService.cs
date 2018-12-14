@@ -23,7 +23,17 @@ namespace DLL_Library_NET_Project.Service
             context.SaveChanges();
         }
 
-        public void Delete(int id_action, int id_scenario)
+        public void Delete(int id)
+        {
+            var entity = (from c in context.ActionScenario where c.id == id select c).FirstOrDefault();
+            if (entity != null)
+            {
+                context.ActionScenario.Remove(entity);
+                context.SaveChanges();
+            }
+        }
+
+        public void DeleteFromActionAndScenarioId(int id_action, int id_scenario)
         {
             var entity = (from c in context.ActionScenario where c.actionId == id_action && c.scenarioId == id_scenario select c).FirstOrDefault();
             if (entity != null)
@@ -64,6 +74,7 @@ namespace DLL_Library_NET_Project.Service
         //    var entity = (from c in context.ActionScenario where c.actionId == actionScenario.??? && c.scenarioId == actionScenario.??? select c).FirstOrDefault();
         //    if (entity != null)
         //    {
+        //        entity.id = actionScenario.id;
         //        entity.ordre = actionScenario.ordre;
         //        context.SaveChanges();
         //    }
@@ -72,6 +83,11 @@ namespace DLL_Library_NET_Project.Service
         public List<ActionScenario> Get()
         {
             return (from c in context.ActionScenario select ActionScenarioMapper.Map(c)).ToList();
+        }
+
+        public ActionScenario GetById(int id)
+        {
+            return (from c in context.ActionScenario where c.id == id select ActionScenarioMapper.Map(c)).FirstOrDefault();
         }
 
         public List<ActionScenario> GetByActionId(int id_action)

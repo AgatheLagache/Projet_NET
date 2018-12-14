@@ -12,7 +12,6 @@ namespace DLL_Library_NET_Project.Persistance
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ActionScenarioDAO>().HasKey(i => new { i.actionId, i.scenarioId });
         }
 
         public DbSet<ActeurDAO> Acteur { get; set; }

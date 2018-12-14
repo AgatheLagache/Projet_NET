@@ -6,16 +6,15 @@ namespace DLL_Library_NET_Project.Persistance.DAO
     [Table("ActionScenario")]
     public class ActionScenarioDAO
     {
+        public int id { get; set; }
         public int ordre { get; set; }
         public int actionId { get; set; }
         public int scenarioId { get; set; }
 
-        [Key]
-        [Column(Order = 0)]
+        [ForeignKey("actionId")]
         public virtual ActionDAO Action { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
+        [ForeignKey("scenarioId")]
         public virtual ScenarioDAO Scenario { get; set; }
     }
 }

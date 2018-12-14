@@ -33,6 +33,19 @@ namespace DLL_Library_NET_Project.Service
             }
         }
 
+        public void DeleteAllFromActeurId(int id)
+        {
+            var entity = (from c in context.Action where c.acteurId == id select c);
+            if (entity != null)
+            {
+                foreach (var entities in entity)
+                {
+                    context.Action.Remove(entities);
+                    context.SaveChanges();
+                }
+            }
+        }
+
         public void Update(Action action)
         {
             var entity = (from c in context.Action where c.id == action.id select c).FirstOrDefault();
