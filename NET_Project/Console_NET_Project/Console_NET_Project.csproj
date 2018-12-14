@@ -66,6 +66,10 @@
       <Project>{fc8b6b9d-c2e8-44af-bc04-923dca22c79d}</Project>
       <Name>DLL_Library_NET_Project</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WPF_NET_Project\WPF_NET_Project.csproj">
+      <Project>{AC280055-F0C6-4455-86E2-DB94AFA275E9}</Project>
+      <Name>WPF_NET_Project</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

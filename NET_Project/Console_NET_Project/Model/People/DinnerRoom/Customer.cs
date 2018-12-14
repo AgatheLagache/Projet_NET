@@ -9,6 +9,8 @@ namespace Console_NET_Project.Model.DinnerRoom
 {
     public class Customer : GroupCustomer
     {
+
+        private Random numeroMenuRandom = new Random();
         public Customer()
         {
 
@@ -18,9 +20,21 @@ namespace Console_NET_Project.Model.DinnerRoom
 
         }
 
+        public void ChooseStarter()
+        {
+            /* Choix de l'entrée */
+
+        }
+
         public void ChooseDishes()
         {
             /* choix du menu */
+        }
+
+        public void ChooseDessert()
+        {
+            /* choix du dessert */
+
         }
     }
 }
