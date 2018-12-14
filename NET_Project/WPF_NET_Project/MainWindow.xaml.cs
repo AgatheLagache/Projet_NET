@@ -209,7 +209,6 @@ namespace WPF_NET_Project
             }
             Scenario_Nb = nb_random.Next(0, nb_scenario);
             Scenario_Choice.SelectedIndex = Scenario_Nb;
-            MessageBox.Show(nb_scenario.ToString() + "  scénario choisi : " + Scenario_Nb.ToString());
         }
 
         private void MainWindow1_Closed(object sender, EventArgs e)

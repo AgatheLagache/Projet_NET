@@ -46,7 +46,7 @@ namespace WPF_NET_Project
 
             thread.RunWorkerAsync();
 
-            MessageAdd(new Message { Text = Parametres.NumberCooks.ToString(), Color = Brushes.White });
+            //MessageAdd(new Message { Text = Parametres.NumberCooks.ToString(), Color = Brushes.White });
 
             //Results_Textbox.IsEnabled = false;
 
@@ -67,7 +67,7 @@ namespace WPF_NET_Project
                     string message = Encoding.ASCII.GetString(bytes, 0, i);
                     Dictionary<string, string> paramList = message.Split('&').Select(m => m.Split('|')).ToDictionary(m => m.FirstOrDefault(), m => m.Skip(1).FirstOrDefault());
 
-                    worker.ReportProgress(0, new Message {Text = "Connexion au serveur réussie. Lancement de l'affichage des résultats...", Color = Brushes.White });
+                    worker.ReportProgress(0, new Message {Text = "Lancement de l'affichage des résultats...", Color = Brushes.White });
                 }
                 Thread.Sleep(1000);
             }
