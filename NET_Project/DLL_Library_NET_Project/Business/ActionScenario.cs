@@ -2,6 +2,7 @@
 {
     public class ActionScenario
     {
+        public int id { get; set; }
         public int ordre { get; set; }
         public virtual Action Action { get; set; }
         public virtual Scenario Scenario { get; set; }
