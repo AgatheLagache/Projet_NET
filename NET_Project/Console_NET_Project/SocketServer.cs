@@ -23,7 +23,7 @@ namespace Console_NET_Project
 
                 // Start the socket
                 serverSocket.Start();
-                Console.WriteLine("Connexion au serveur effectuée.");
+                Console.WriteLine("Bienvenue sur le serveur.");
 
                 // BUFFER FOR READING DATA
                 Byte[] bytes = new Byte[256];

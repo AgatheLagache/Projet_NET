@@ -23,6 +23,7 @@ namespace WPF_NET_Project
         private int Nb_Slow_Clients = 1;
         private int Nb_Waiters = 1;
         private int Nb_Cooks = 1;
+        private int Scenario_Nb = 0;
         //Results results = new Results();
 
         public MainWindow()
@@ -107,8 +108,10 @@ namespace WPF_NET_Project
                 && int.TryParse(Nb_Ordinary_Clients_Choice.Text, out Nb_Ordinary_Clients)
                 && int.TryParse(Nb_Slow_Clients_Choice.Text, out Nb_Slow_Clients)
                 && int.TryParse(Nb_Waiters_Choice.Text, out Nb_Waiters)
-                && int.TryParse(Nb_Cooks_Choice.Text, out Nb_Cooks))
+                && int.TryParse(Nb_Cooks_Choice.Text, out Nb_Cooks)
+                && (Scenario_Choice.SelectedIndex >= 0))
             {
+
             }
             else
             {
@@ -117,7 +120,12 @@ namespace WPF_NET_Project
                 Nb_Cooks_Random_Click(sender, e);
             }
 
-            Param.nb_waiters = Nb_Waiters;
+            Parametres.NumberFastClients = int.Parse(Nb_Fast_Clients_Choice.Text);
+            Parametres.NumberOrdinaryClients = int.Parse(Nb_Ordinary_Clients_Choice.Text);
+            Parametres.NumberSlowClients = int.Parse(Nb_Slow_Clients_Choice.Text);
+            Parametres.NumberWaiters = int.Parse(Nb_Waiters_Choice.Text);
+            Parametres.NumberCooks = int.Parse(Nb_Cooks_Choice.Text);
+            Parametres.NumberScenario = Scenario_Nb;
             Results results = new Results();
             results.Show();
             MainWindow1.IsEnabled = false;
@@ -133,6 +141,7 @@ namespace WPF_NET_Project
         private void Nb_Waiters_Random_Click(object sender, RoutedEventArgs e)
         {
             Nb_Waiters_Choice.Text = nb_random.Next(1, 12).ToString();
+
         }
 
         private void Nb_Cooks_Random_Click(object sender, RoutedEventArgs e)
@@ -193,11 +202,23 @@ namespace WPF_NET_Project
 
         private void Scenario_Random_Click(object sender, RoutedEventArgs e)
         {
+            int nb_scenario = 0;
+            foreach (var scenario in Scenario_Choice.Items)
+            {
+                nb_scenario += 1;
+            }
+            Scenario_Nb = nb_random.Next(0, nb_scenario);
+            Scenario_Choice.SelectedIndex = Scenario_Nb;
         }
 
         private void MainWindow1_Closed(object sender, EventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void Scenario_Choice_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Scenario_Nb = Scenario_Choice.SelectedIndex;
         }
     }
 }

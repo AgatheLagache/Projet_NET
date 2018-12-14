@@ -8,7 +8,7 @@
         Title="Paramètres" Height="346.398" Width="761.91" ResizeMode="NoResize" Closed="MainWindow1_Closed">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="20,20,0,0" TextWrapping="Wrap" Text="Scénario :" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="Scenario_Choice" Margin="189,20,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="380"/>
+        <ComboBox x:Name="Scenario_Choice" Margin="189,20,0,0" VerticalAlignment="Top" FontSize="16" HorizontalAlignment="Left" Width="380" SelectionChanged="Scenario_Choice_SelectionChanged"/>
         <Button x:Name="Scenario_Random" Content="Scénario aléatoire" Margin="589,20,20,0" VerticalAlignment="Top" FontSize="16" Click="Scenario_Random_Click"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="20,60,0,0" TextWrapping="Wrap" Text="Nombre de clients :" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
