@@ -27,6 +27,10 @@ namespace Console_NET_Project.Model.DinnerRoom
         public void AskNumberPerson()
         {
             /* demande le nombre de client à l'entrée du restaurant */
+            if ()
+            {
+
+            }
         }
 
         public void ChooseTable()
