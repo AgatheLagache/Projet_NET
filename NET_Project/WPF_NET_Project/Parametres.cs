@@ -8,14 +8,11 @@ namespace WPF_NET_Project
 {
     public static class Parametres
     {
-        private static int NumberFastClients { get; set; }
-        private static int NumberOrdinaryClients { get; set; }
-        private static int NumberSlowClients { get; set; }
-        private static int NumberWaiters { get; set; }
-        private static int NumberCooks { get; set; }
-        private static int NumberScenario { get; set; }
-
-
-
+        public static int NumberFastClients { get; set; } = 1;
+        public static int NumberOrdinaryClients { get; set; } = 1;
+        public static int NumberSlowClients { get; set; } = 1;
+        public static int NumberWaiters { get; set; } = 1;
+        public static int NumberCooks { get; set; } = 1;
+        public static int NumberScenario { get; set; } = 1;
     }
 }
