@@ -136,7 +136,6 @@
     <Compile Include="Business\Recette.cs" />
     <Compile Include="Business\Scenario.cs" />
     <Compile Include="Business\TypeRecette.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="History.cs" />
     <Compile Include="Persistance\Context.cs" />
     <Compile Include="Persistance\DAO\ActeurDAO.cs" />

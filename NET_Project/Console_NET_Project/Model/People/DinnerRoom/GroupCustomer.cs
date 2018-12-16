@@ -7,9 +7,8 @@ namespace Console_NET_Project.Model.DinnerRoom
 {
     public class GroupCustomer : Person
     {
-        public List<Customer> groupCustomer;
+        public static List<Customer> groupCustomer { get; set; }
         private bool IsWaiting { get; set; }
-
         public int bill = 0;
         private Random NumberRandom = new Random();
         private int priceMenu;

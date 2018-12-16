@@ -15,7 +15,7 @@ namespace Console_NET_Project.Model.People.Kitchen
 
         public void CutVegetable()
         {
-
+            //Coupe les légumes
         }
     }
 }

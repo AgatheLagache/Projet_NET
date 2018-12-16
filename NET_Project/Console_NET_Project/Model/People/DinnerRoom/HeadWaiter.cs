@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Console_NET_Project.Model.DinnerRoom
@@ -25,7 +26,9 @@ namespace Console_NET_Project.Model.DinnerRoom
 
         public void TakeOrder()
         {
-            /* prend les commandes des clients */
+            int orderTimeAverage = (10/60); //Temps moyen pour prendre une commande (10s/client avec modif échelle de temps)
+            int number = GroupCustomer.groupCustomer.Count();
+            Thread.Sleep(orderTimeAverage*number*1000);
         }
 
         public void GiveOrderToCommisChef()
