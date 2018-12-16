@@ -1,6 +1,7 @@
 ﻿using Console_NET_Project.Model.People;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using WPF_NET_Project;
 
 namespace Console_NET_Project.Model.DinnerRoom
@@ -26,9 +27,10 @@ namespace Console_NET_Project.Model.DinnerRoom
             /* client vient d'arriver */
         }
 
-        public void GetNumberPerson()
+        public static int GetNumberPerson()
         {
-            /* retourner le nombre de client dans la liste */
+            int number = groupCustomer.Count();
+            return number;
         }
 
         public void ExitRestaurant()
@@ -60,8 +62,6 @@ namespace Console_NET_Project.Model.DinnerRoom
         public void ChooseDessert()
         {
             /* choix du dessert */
-
-
         }
         
         public void CommandOrder()
@@ -91,7 +91,6 @@ namespace Console_NET_Project.Model.DinnerRoom
                 default:
                     break;
             }
-
         }
     }
 }

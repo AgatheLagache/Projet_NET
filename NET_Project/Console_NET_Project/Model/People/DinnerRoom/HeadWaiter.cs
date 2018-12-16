@@ -27,7 +27,7 @@ namespace Console_NET_Project.Model.DinnerRoom
         public void TakeOrder()
         {
             int orderTimeAverage = (10/60); //Temps moyen pour prendre une commande (10s/client avec modif échelle de temps)
-            int number = GroupCustomer.groupCustomer.Count();
+            int number = GroupCustomer.GetNumberPerson();
             Thread.Sleep(orderTimeAverage*number*1000);
         }
 
