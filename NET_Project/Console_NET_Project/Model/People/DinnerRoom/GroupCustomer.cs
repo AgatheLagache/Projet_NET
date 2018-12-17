@@ -1,4 +1,6 @@
 ﻿using Console_NET_Project.Model.People;
+using DLL_Library_NET_Project.Business;
+using DLL_Library_NET_Project.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,40 +10,47 @@ namespace Console_NET_Project.Model.DinnerRoom
 {
     public class GroupCustomer : Person
     {
-        public static List<Customer> groupCustomer { get; set; }
-        private bool IsWaiting { get; set; }
         public int bill = 0;
-        private Random NumberRandom = new Random();
         private int priceMenu;
-        private int customerNumber;
+        //private int customerNumber;
 
-        public GroupCustomer()
+        public int NumeroTable { get; set; }
+        public int NbPerson { get; private set; }
+        public bool IsServed { get; set; }
+        public GroupCustomer(int nbPerson, int id)
         {
-            groupCustomer = new List<Customer>();
-            customerNumber = NumberRandom.Next(1, 11);
+            NbPerson = nbPerson;
+            Id = id;
+            IsServed = false;
         }
 
         public void IsHere()
         {
-            IsWaiting = false;
+            IsServed = false;
             /* client vient d'arriver */
         }
 
-        public static int GetNumberPerson()
+        public static void ExitRestaurant(int id, List<Table> listTable)
         {
-            int number = groupCustomer.Count();
-            return number;
-        }
+            var groupQuery = (from groups in listGroupCustomerOnTable where groups.Id == id select groups).FirstOrDefault();
+            if (groupQuery != null)
+            {
+                var groupTableQuery = (from table in listTable where table.Id == groupQuery.NumeroTable select table).FirstOrDefault();
 
-        public void ExitRestaurant()
-        {
-            /* suppression du groupe de client */
+                groupTableQuery.Availibility = true;
+                listGroupCustomerOnTable.Remove(groupQuery);
+                Console.WriteLine("Le groupe de client n°" + groupQuery.Id + " part du restaurant et libère la table n°" + groupTableQuery.Id);
+            }
+            else
+            {
+
+            }
         }
 
         public void Paysbill()
         {
             /* méthode de paiement */
-            bill = priceMenu * customerNumber;
+            //bill = priceMenu * customerNumber;
         }
 
         public void Behaviour()
@@ -54,9 +63,14 @@ namespace Console_NET_Project.Model.DinnerRoom
             /* Choix de l'entrée */
         }
 
-        public void ChooseDishes()
+        public static string ChooseDishes()
         {
-            /* choix du menu */
+            Random rand = new Random();
+            RecetteService recetteService = new RecetteService();
+            List<Recette> recettes = recetteService.GetByTypeId(2);
+            int nb = rand.Next(recettes.Count);
+            string command = recettes[nb].intitule;
+            return command;
         }
 
         public void ChooseDessert()

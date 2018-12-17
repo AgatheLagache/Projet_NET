@@ -13,11 +13,8 @@ namespace WPF_NET_Project
     /// </summary>
     public partial class MainWindow : Window
     {
-        //private BackgroundWorker thread;
-        //NetworkStream serverStream = default(NetworkStream);
-        //TcpClient clientSocket = new TcpClient();
-
         private Random nb_random = new Random();
+
         private int Nb_Clients = 1;
         private int Nb_Waiters = 1;
         private int Nb_Cooks = 1;
@@ -28,78 +25,14 @@ namespace WPF_NET_Project
         public MainWindow()
         {
             InitializeComponent();
-            List<Scenario> scenarioList = History.GetAllScenarioFromDB();
-            Scenario_Choice.ItemsSource = scenarioList;
-            Scenario_Choice.SelectedItem = scenarioList.First();
-            //Scenario_Choice.SelectedItem = scenarioList.Last();
-            //Scenario_Choice.SelectedItem = scenarioList.Where(i => i.id == 2).FirstOrDefault();
-            Scenario_Choice.DisplayMemberPath = "titre";
-            //thread = new BackgroundWorker();
+            //List<Scenario> scenarioList = History.GetAllScenarioFromDB();
+            //Scenario_Choice.ItemsSource = scenarioList;
+            //Scenario_Choice.SelectedItem = scenarioList.First();
+
+            ////Scenario_Choice.SelectedItem = scenarioList.Where(i => i.id == 2).FirstOrDefault();
+
+            //Scenario_Choice.DisplayMemberPath = "titre";
         }
-
-        ///* déclaration du model restaurant de l'interface IRestaurantModel */
-        //private IRestaurantModel restaurantModel;
-
-        ///* déclaration de la vue restaurant de l'interface IRestaurantView */
-        //private IRestaurantView restaurantView;
-        //private IScenario scenario;
-
-        ///* Instancie un nouveau controleur du restaurant */
-        //public RestaurantController(IRestaurantModel restaurantModel, IRestaurantView restaurantView)
-        //{
-        //    this.setRestaurantView(restaurantView);
-        //    this.setRestaurantModel(restaurantModel);
-        //}
-
-        ///* Récupère le model du restaurant et le retourne */
-        //public IRestaurantModel getRestaurantModel()
-        //{
-        //    return this.restaurantModel;
-        //}
-
-        ///* Attribue la valeur du model */
-        //private void setRestaurantModel(IRestaurantModel model)
-        //{
-        //    this.restaurantModel = model;
-        //}
-
-        ///* Récupère la vue du restaurant et la retourne */
-        //public IRestaurantView getRestaurantView()
-        //{
-        //    return this.restaurantView;
-        //}
-
-        ///* Attribue la valeur de la vue */
-        //private void setRestaurantView(IRestaurantView view)
-        //{
-        //    this.restaurantView = view;
-        //}
-
-        ///* Lance la méthode initializeScenario qui permet de choisir un scnario */
-        //public void startScenario()
-        //{
-        //    scenario.initializeScenario(1);
-        //}
-
-        ///*  */
-        //public void play()
-        //{
-        //    this.startScenario();
-        //}
-
-        ///*  */
-        //public void pause()
-        //{
-        //}
-
-        ///*  */
-        //public void replay()
-        //{
-        //}
-
-        //public void speedUp()
-        //{
-        //}
 
         private void Start_Simulation_Click(object sender, RoutedEventArgs e)
         {
@@ -124,6 +57,12 @@ namespace WPF_NET_Project
             Parametres.NumberCooks = int.Parse(Nb_Cooks_Choice.Text);
             Parametres.NumberHeadwaiters = int.Parse(Nb_Waiters_Choice.Text);
             Parametres.NumberScenario = Scenario_Nb;
+
+            /*
+             * PARAMETRE A METTRE EN PLACE
+             * */
+            //Parametres.NumberGroupCustomer = int.Parse(Nb_GroupCustomer.Text);
+
             Results results = new Results();
             results.Show();
             MainWindow1.IsEnabled = false;

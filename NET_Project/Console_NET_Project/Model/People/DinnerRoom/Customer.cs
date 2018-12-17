@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Console_NET_Project.Model.DinnerRoom
 {
-    public class Customer : GroupCustomer
+    public class Customer
     {
 
         private Random numeroMenuRandom = new Random();

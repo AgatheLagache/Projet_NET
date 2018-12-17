@@ -12,7 +12,7 @@ namespace Console_NET_Project.Model.DinnerRoom
     {
         public HeadWaiter()
         {
-
+            IsBusy = true;
         }
         public void ReceiveOrder()
         {
@@ -24,11 +24,23 @@ namespace Console_NET_Project.Model.DinnerRoom
             /* donne les menu aux clients */
         }
 
-        public void TakeOrder()
+        public void TakeOrder(List<Command> listCommand)
         {
-            int orderTimeAverage = (10/60); //Temps moyen pour prendre une commande (10s/client avec modif échelle de temps)
-            int number = GroupCustomer.GetNumberPerson();
-            Thread.Sleep(orderTimeAverage*number*1000);
+            // listGroupCustomerOnTable.Count != 0
+            while (!SocketServer._leave)
+            {
+                foreach (GroupCustomer list in listGroupCustomerOnTable.ToList())
+                {
+                    Thread.Sleep(1500);
+                    if (list.IsServed == false && list != null)
+                    {
+                        IsBusy = true;
+                        listCommand.Add(new Command(GroupCustomer.ChooseDishes(), list.Id, 23));
+                        list.IsServed = true;
+                        Console.WriteLine("Le chef de rang a pris la commande du groupe n°" + list.Id);
+                    }
+                }
+            }
         }
 
         public void GiveOrderToCommisChef()

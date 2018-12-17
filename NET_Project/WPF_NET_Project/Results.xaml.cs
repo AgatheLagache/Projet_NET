@@ -25,6 +25,7 @@ namespace WPF_NET_Project
         private BackgroundWorker thread;
         private NetworkStream serverStream = default(NetworkStream);
         private TcpClient clientSocket = new TcpClient();
+        private Random rand = new Random();
 
         public Results()
         {
@@ -40,18 +41,15 @@ namespace WPF_NET_Project
             clientSocket.Connect("127.0.0.1", 8888);
             serverStream = clientSocket.GetStream();
 
-            byte[] outStream = Encoding.ASCII.GetBytes("lancement");
-            serverStream.Write(outStream, 0, outStream.Length);
+            /*
+             * byte[] nbGroupCustomer = Encoding.ASCII.GetBytes(Parametres.NumberGroupCustomer.ToString());
+            */
+            int nbGroupCustomer = rand.Next(3, 10);
+            serverStream.Write(Encoding.ASCII.GetBytes(nbGroupCustomer.ToString()), 0, nbGroupCustomer.ToString().Length);
+
             serverStream.Flush();
 
             thread.RunWorkerAsync();
-
-            //MessageAdd(new Message { Text = Parametres.NumberCooks.ToString(), Color = Brushes.White });
-
-            //Results_Textbox.IsEnabled = false;
-
-            //clientSocket.Connect("127.0.0.1", int.Parse("8888"));
-            //serverStream = clientSocket.GetStream();
         }
 
         private void Thread_DoWork(object sender, DoWorkEventArgs e)
@@ -89,20 +87,6 @@ namespace WPF_NET_Project
             Run newLine = new Run("> " /*+ DateTime.Now.ToString("T") + " ["*/ + message.Author + /*"] " +*/ message.Text + "\n") { Foreground = message.Color };
             messageBox.Inlines.InsertBefore(messageBox.Inlines.FirstInline, newLine);
         }
-
-        /*public Results GetResults()
-        {
-            if (results == null)
-            {
-                results = new Results();
-            }
-            clientSocket.Connect("127.0.0.1", int.Parse("8888"));
-            serverStream = clientSocket.GetStream();
-
-            thread.RunWorkerAsync();
-            results.Show();
-            return results;
-        }*/
 
         private void Results1_Closed(object sender, EventArgs e)
         {
