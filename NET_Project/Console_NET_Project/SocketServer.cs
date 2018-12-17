@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Console_NET_Project.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -16,6 +17,7 @@ namespace Console_NET_Project
             int serverPort = 8888;
             IPAddress serverAddress = IPAddress.Parse("127.0.0.1");
             TcpListener serverSocket = null;
+            RestaurantModel restaurant;
 
             try
             {
@@ -23,34 +25,76 @@ namespace Console_NET_Project
 
                 // Start the socket
                 serverSocket.Start();
-                Console.WriteLine("Bienvenue sur le serveur.");
 
                 // BUFFER FOR READING DATA
                 Byte[] bytes = new Byte[256];
                 String data = null;
 
-
                 while (true)
                 {                 
                     TcpClient client = serverSocket.AcceptTcpClient();
                     NetworkStream stream = client.GetStream();
-
                     int i;
                     while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
                     {
-                        byte[] msg;
-
                         // CONVERT DATA BYTES TO ASCII STRING.
                         data = Encoding.ASCII.GetString(bytes, 0, i);
-                        Console.WriteLine("IN: {0}", data);
 
+                        /* 
+                         * PARTIE CONTROLEUR 
+                        */
 
-                        string messageRetour = "message retour";
-                        stream.Write(Encoding.ASCII.GetBytes(messageRetour), 0, messageRetour.Length);
+                        int nbGroupCustomer = Int32.Parse(data);
+                        restaurant = new RestaurantModel(8, 2, 3, 2);
+
+                        //restaurant.AfficherListe();
+
+                        /* Thread du MaitreHotel */
+                        Thread threadMaitreHotel = new Thread(() => restaurant.maitreHotel.PlaceCustomer(restaurant.listTable, restaurant.listGroupCustomerWaiting));
+                        threadMaitreHotel.Start();
+
+                        Thread.Sleep(5000);
+                        /* Thread du HeadWaiter */
+                        Thread threadHeadWaiter = new Thread(() => restaurant.headWaiter.TakeOrder(restaurant.listCommand));
+                        threadHeadWaiter.Start();
+
+                        //Thread.Sleep(10000);
+                        /* Thread du Chef */
+                        Thread.Sleep(5000);
+                        Thread threadChef = new Thread(() => restaurant.chef.DispatchTask(restaurant.listCook, restaurant.listCommand, restaurant.listGroupCustomerWaiting));
+                        threadChef.Start();
+
+                        /* Thread du Cuisinier */
+                        Thread.Sleep(5000);
+                        Thread threadCook = new Thread(() => restaurant.cook.Cooking(restaurant.listCommand, restaurant.listCook, restaurant.listGroupCustomerWaiting));
+                        threadCook.Start();
+
+                        /* Thred du Waiter */ 
+                        Thread.Sleep(5000);
+                        Thread threadWaiter = new Thread(() => restaurant.waiter.PutSomething(restaurant.listCommand, restaurant.listTable));
+                        threadWaiter.Start();
+
+                        //restaurant.DisplayTable();
+
+                        //Thread.Sleep(5000);
+                        //restaurant.groupCustomer.ExitRestaurant(3, restaurant.listTable);
+                        //Thread.Sleep(5000);
+                        //restaurant.groupCustomer.ExitRestaurant(2, restaurant.listTable);
+
+                        //Thread.Sleep(7000);
+                        //restaurant.Afficher();
+
+                        //Thread.Sleep(5000);
+                        //restaurant.groupCustomer.ExitRestaurant(1, restaurant.listTable);
+                        //Thread.Sleep(5000);
+                        //restaurant.groupCustomer.ExitRestaurant(4, restaurant.listTable);
+
+                        Thread.Sleep(20000);
+                        restaurant.AfficherListe();
+
+                        Console.ReadKey();                       
                     }
-
                     client.Close();
-                    Console.WriteLine("cc le client");
                 }
             }
             catch (Exception error)

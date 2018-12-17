@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C70C78D7-F304-4385-A796-C60B5E742300}</ProjectGuid>
+    <ProjectGuid>{70769997-F804-4BB5-AEFC-3DFB3C8CC4E1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Console_NET_Project</RootNamespace>
-    <AssemblyName>Console_NET_Project</AssemblyName>
+    <RootNamespace>Threading</RootNamespace>
+    <AssemblyName>Threading</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,34 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Command.cs" />
-    <Compile Include="SocketServer.cs" />
-    <Compile Include="Model\People\DinnerRoom\Commis.cs" />
-    <Compile Include="Model\People\DinnerRoom\Customer.cs" />
-    <Compile Include="Model\People\DinnerRoom\GroupCustomer.cs" />
-    <Compile Include="Model\People\DinnerRoom\HeadWaiter.cs" />
-    <Compile Include="Model\People\DinnerRoom\MaitreHotel.cs" />
-    <Compile Include="Model\People\DinnerRoom\Waiter.cs" />
-    <Compile Include="Model\People\Kitchen\Chef.cs" />
-    <Compile Include="Model\People\Kitchen\CommisChef.cs" />
-    <Compile Include="Model\People\Kitchen\Cook.cs" />
-    <Compile Include="Model\People\Person.cs" />
-    <Compile Include="Model\RestaurantModel.cs" />
-    <Compile Include="Model\Table.cs" />
+    <Compile Include="GroupCustomer.cs" />
+    <Compile Include="MaitreHotel.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurant.cs" />
+    <Compile Include="Table.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DLL_Library_NET_Project\DLL_Library_NET_Project.csproj">
-      <Project>{fc8b6b9d-c2e8-44af-bc04-923dca22c79d}</Project>
-      <Name>DLL_Library_NET_Project</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WPF_NET_Project\WPF_NET_Project.csproj">
-      <Project>{AC280055-F0C6-4455-86E2-DB94AFA275E9}</Project>
-      <Name>WPF_NET_Project</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

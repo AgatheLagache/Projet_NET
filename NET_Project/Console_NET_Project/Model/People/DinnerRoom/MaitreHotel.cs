@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Console_NET_Project.Model.DinnerRoom
@@ -27,15 +28,34 @@ namespace Console_NET_Project.Model.DinnerRoom
         public void AskNumberPerson()
         {
             /* demande le nombre de client à l'entrée du restaurant */
-            if ()
-            {
-
-            }
         }
 
-        public void ChooseTable()
+        public void PlaceCustomer(List<Table> listTable, List<GroupCustomer> listCustomer)
         {
-            /* choix de la table en fonction du nombre de personnes */
+            //listCustomer.Count != 0
+            while (true)
+            {
+                foreach (var table in listTable)
+                {
+                    Thread.Sleep(500);
+                    if (table.Availibility == true)
+                    {
+                        var groupQuery = (from groups in listCustomer select groups).FirstOrDefault();
+                        if (groupQuery != null)
+                        {
+                            Console.WriteLine("Table Disponible");
+                            groupQuery.NumeroTable = table.Id;
+                            table.Availibility = false;
+                            listGroupCustomerOnTable.Add(groupQuery);
+                            listCustomer.Remove(groupQuery);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Table occupée");
+                    }
+                }
+            }
         }
 
         public void AskHeadWaiter()

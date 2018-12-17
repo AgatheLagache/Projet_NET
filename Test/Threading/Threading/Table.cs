@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_NET_Project.Model
+namespace Threading
 {
     public class Table
     {
