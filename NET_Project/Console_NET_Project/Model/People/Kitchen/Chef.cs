@@ -32,7 +32,7 @@ namespace Console_NET_Project.Model.People.Kitchen
         public void DispatchTask(List<Cook> listCook, List<Command> listCommand, List<GroupCustomer> listCustomer)
         {
             //listGroupCustomerOnTable.Count != 0
-            while (true)
+            while (!SocketServer._leave)
             {
                 foreach (var list in listCook)
                 {

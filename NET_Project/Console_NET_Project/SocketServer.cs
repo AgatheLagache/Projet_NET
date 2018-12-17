@@ -12,6 +12,7 @@ namespace Console_NET_Project
 {
     public class SocketServer
     {
+        public static bool _leave = false;
         static void Main(string[] args)
         {
             int serverPort = 8888;
@@ -47,51 +48,36 @@ namespace Console_NET_Project
                         int nbGroupCustomer = Int32.Parse(data);
                         restaurant = new RestaurantModel(8, 2, 3, 2);
 
-                        //restaurant.AfficherListe();
+                        do
+                        {
+                            /* Thread du MaitreHotel */
+                            Thread threadMaitreHotel = new Thread(() => restaurant.maitreHotel.PlaceCustomer(restaurant.listTable, restaurant.listGroupCustomerWaiting));
+                            threadMaitreHotel.Start();
 
-                        /* Thread du MaitreHotel */
-                        Thread threadMaitreHotel = new Thread(() => restaurant.maitreHotel.PlaceCustomer(restaurant.listTable, restaurant.listGroupCustomerWaiting));
-                        threadMaitreHotel.Start();
+                            Thread.Sleep(5000);
+                            /* Thread du HeadWaiter */
+                            Thread threadHeadWaiter = new Thread(() => restaurant.headWaiter.TakeOrder(restaurant.listCommand));
+                            threadHeadWaiter.Start();
 
-                        Thread.Sleep(5000);
-                        /* Thread du HeadWaiter */
-                        Thread threadHeadWaiter = new Thread(() => restaurant.headWaiter.TakeOrder(restaurant.listCommand));
-                        threadHeadWaiter.Start();
+                            //Thread.Sleep(10000);
+                            /* Thread du Chef */
+                            Thread.Sleep(5000);
+                            Thread threadChef = new Thread(() => restaurant.chef.DispatchTask(restaurant.listCook, restaurant.listCommand, restaurant.listGroupCustomerWaiting));
+                            threadChef.Start();
 
-                        //Thread.Sleep(10000);
-                        /* Thread du Chef */
-                        Thread.Sleep(5000);
-                        Thread threadChef = new Thread(() => restaurant.chef.DispatchTask(restaurant.listCook, restaurant.listCommand, restaurant.listGroupCustomerWaiting));
-                        threadChef.Start();
+                            /* Thread du Cuisinier */
+                            Thread.Sleep(5000);
+                            Thread threadCook = new Thread(() => restaurant.cook.Cooking(restaurant.listCommand, restaurant.listCook, restaurant.listGroupCustomerWaiting));
+                            threadCook.Start();
 
-                        /* Thread du Cuisinier */
-                        Thread.Sleep(5000);
-                        Thread threadCook = new Thread(() => restaurant.cook.Cooking(restaurant.listCommand, restaurant.listCook, restaurant.listGroupCustomerWaiting));
-                        threadCook.Start();
+                            /* Thred du Waiter */
+                            Thread.Sleep(5000);
+                            Thread threadWaiter = new Thread(() => restaurant.waiter.PutSomething(restaurant.listCommand, restaurant.listTable));
+                            threadWaiter.Start();
+                        } while (restaurant.listGroupCustomerWaiting.Count != 0);
 
-                        /* Thred du Waiter */ 
-                        Thread.Sleep(5000);
-                        Thread threadWaiter = new Thread(() => restaurant.waiter.PutSomething(restaurant.listCommand, restaurant.listTable));
-                        threadWaiter.Start();
-
-                        //restaurant.DisplayTable();
-
-                        //Thread.Sleep(5000);
-                        //restaurant.groupCustomer.ExitRestaurant(3, restaurant.listTable);
-                        //Thread.Sleep(5000);
-                        //restaurant.groupCustomer.ExitRestaurant(2, restaurant.listTable);
-
-                        //Thread.Sleep(7000);
-                        //restaurant.Afficher();
-
-                        //Thread.Sleep(5000);
-                        //restaurant.groupCustomer.ExitRestaurant(1, restaurant.listTable);
-                        //Thread.Sleep(5000);
-                        //restaurant.groupCustomer.ExitRestaurant(4, restaurant.listTable);
-
-                        Thread.Sleep(20000);
+                        _leave = true;
                         restaurant.AfficherListe();
-
                         Console.ReadKey();                       
                     }
                     client.Close();

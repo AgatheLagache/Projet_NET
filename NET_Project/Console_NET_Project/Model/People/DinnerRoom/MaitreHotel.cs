@@ -33,7 +33,7 @@ namespace Console_NET_Project.Model.DinnerRoom
         public void PlaceCustomer(List<Table> listTable, List<GroupCustomer> listCustomer)
         {
             //listCustomer.Count != 0
-            while (true)
+            while (!SocketServer._leave)
             {
                 foreach (var table in listTable)
                 {

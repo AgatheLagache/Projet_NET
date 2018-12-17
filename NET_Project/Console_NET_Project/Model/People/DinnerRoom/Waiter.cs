@@ -16,7 +16,7 @@ namespace Console_NET_Project.Model.People.DinnerRoom
         }
         public void PutSomething(List<Command> listCommand, List<Table> listTable)
         {
-            while (true)
+            while (!SocketServer._leave)
             {
                 foreach (var list in listCommand.ToList())
                 {

@@ -27,7 +27,7 @@ namespace Console_NET_Project.Model.DinnerRoom
         public void TakeOrder(List<Command> listCommand)
         {
             // listGroupCustomerOnTable.Count != 0
-            while (true)
+            while (!SocketServer._leave)
             {
                 foreach (GroupCustomer list in listGroupCustomerOnTable.ToList())
                 {

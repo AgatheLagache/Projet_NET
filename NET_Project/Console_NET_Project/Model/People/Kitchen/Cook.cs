@@ -17,7 +17,7 @@ namespace Console_NET_Project.Model.People.Kitchen
         public void Cooking(List<Command> listCommand, List<Cook> listCook, List<GroupCustomer> listGroupCustomers)
         {
             //listGroupCustomers.Count != 0
-            while (true)
+            while (!SocketServer._leave)
             {
                 foreach (var list in listCommand.ToList())
                 {
