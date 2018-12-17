@@ -37,13 +37,15 @@ namespace Console_NET_Project.Model.People.Kitchen
                 foreach (var list in listCook)
                 {
                     Thread.Sleep(500);
-
                     list.IsBusy = true;
                     var commandQuery = (from command in listCommand where command.IsReady == "No" select command).FirstOrDefault();
                     if (commandQuery != null)
                     {
-                        Console.WriteLine("distribu plat");
-                        commandQuery.IsReady = "In progress";
+                        if(list.IsBusy == true)
+                        {
+                            Console.WriteLine("Le chef donne le " + commandQuery.Dishes + " à faire au cuisinier n°" + list.Id);
+                            commandQuery.IsReady = "In progress";
+                        }
                     }
                 }
                 //var cookQuery = (from cook in listCook where cook.IsBusy == false select cook).FirstOrDefault();

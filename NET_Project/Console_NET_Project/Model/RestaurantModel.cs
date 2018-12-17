@@ -70,12 +70,24 @@ namespace Console_NET_Project.Model
         {
             chef = Chef.Instance();
         }
-        public void AfficherGroup()
+        public void AfficherGroup(int nbGroup)
         {
-            foreach (var list in listGroupCustomerWaiting)
-            {
-                Console.WriteLine("Dans le groupe n°" + list.Id + ", il y a " + list.NbPerson + " personnes");
-            }
+            Console.WriteLine("Il y a " + nbGroup + " groupe(s) qui attendent à l'accueil");
+        }
+
+        public void AfficherHeadWaiter(int nbHeadWaiter)
+        {
+            Console.WriteLine("Nous avons " + nbHeadWaiter + " chef(s) de rang dans le restaurant");
+        }
+
+        public void AfficherCook(int nbCook)
+        {
+            Console.WriteLine("Nous avons " + nbCook + " cuisinier(s) dans le restaurant");
+        }
+
+        public void AfficherWaiter(int nbWaiter)
+        {
+            Console.WriteLine("Nous avons " + nbWaiter + " serveur(s) dans le restaurant");
         }
 
         public void InstanciateHeadWaiter(int nbHeadWaiter)
@@ -93,7 +105,7 @@ namespace Console_NET_Project.Model
             listCook = new List<Cook>();
             for (int i = 0; i < nbCook; i++)
             {
-                cook = new Cook();
+                cook = new Cook(i);
                 listCook.Add(cook);
             }
         }
@@ -103,7 +115,7 @@ namespace Console_NET_Project.Model
             listWaiter = new List<Waiter>();
             for (int i = 0; i < nbWaiter; i++)
             {
-                waiter = new Waiter();
+                waiter = new Waiter(i);
                 listWaiter.Add(waiter);
             }
         }
@@ -115,6 +127,16 @@ namespace Console_NET_Project.Model
             {
                 Console.WriteLine("Nom plat : " + list.Dishes + " et état : " + list.IsReady);
             }
+        }
+
+        public void Resultat()
+        {
+            int price = 0;
+            foreach (var list in listCommand)
+            {
+                price = list.Price + price;
+            }
+            Console.WriteLine("Nous avons servi " + listCommand.Count + " pour un montant total de : " + price + " euros");
         }
     }
 }

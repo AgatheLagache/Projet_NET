@@ -37,22 +37,18 @@ namespace Console_NET_Project.Model.DinnerRoom
             {
                 foreach (var table in listTable)
                 {
-                    Thread.Sleep(500);
+                    Thread.Sleep(1500);
                     if (table.Availibility == true)
                     {
                         var groupQuery = (from groups in listCustomer select groups).FirstOrDefault();
                         if (groupQuery != null)
                         {
-                            Console.WriteLine("Table Disponible");
                             groupQuery.NumeroTable = table.Id;
                             table.Availibility = false;
                             listGroupCustomerOnTable.Add(groupQuery);
                             listCustomer.Remove(groupQuery);
+                            Console.WriteLine("Le maitre d'hotel a réservé la table n°" + table.Id + " au groupe n°" + groupQuery.Id);
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Table occupée");
                     }
                 }
             }

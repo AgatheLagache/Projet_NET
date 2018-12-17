@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DLL_Library_NET_Project.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,19 @@ namespace Console_NET_Project.Model
         public string Dishes { get; set; }
         public int NumeroGroup { get; set; }
         public string IsReady { get; set; }
-        public Command(string command, int numberGroup)
+        public int Price { get; set; }
+        public Command(string command, int numberGroup, int price)
         {
             Dishes = command;
             NumeroGroup = numberGroup;
             IsReady = "No";
+            Price = price;
+        }
+
+        public static int GetPrice(string dish)
+        {
+            /* retourne le prix d'un plat */
+            return 0;
         }
     }
 }

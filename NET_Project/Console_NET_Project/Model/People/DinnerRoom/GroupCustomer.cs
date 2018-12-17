@@ -39,7 +39,7 @@ namespace Console_NET_Project.Model.DinnerRoom
 
                 groupTableQuery.Availibility = true;
                 listGroupCustomerOnTable.Remove(groupQuery);
-                Console.WriteLine("Le groupe de client n°" + groupQuery.Id + " part du restaurant");
+                Console.WriteLine("Le groupe de client n°" + groupQuery.Id + " part du restaurant et libère la table n°" + groupTableQuery.Id);
             }
             else
             {

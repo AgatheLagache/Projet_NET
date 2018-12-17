@@ -47,7 +47,11 @@ namespace Console_NET_Project
 
                         int nbGroupCustomer = Int32.Parse(data);
                         restaurant = new RestaurantModel(8, 2, 3, 2);
-
+                        restaurant.AfficherGroup(8);
+                        restaurant.AfficherHeadWaiter(2);
+                        restaurant.AfficherCook(3);
+                        restaurant.AfficherWaiter(2);
+                        Console.WriteLine("\n");
                         do
                         {
                             /* Thread du MaitreHotel */
@@ -76,8 +80,10 @@ namespace Console_NET_Project
                             threadWaiter.Start();
                         } while (restaurant.listGroupCustomerWaiting.Count != 0);
 
+                        Thread.Sleep(5000);
                         _leave = true;
-                        restaurant.AfficherListe();
+                        Console.WriteLine("\n");
+                        restaurant.Resultat();
                         Console.ReadKey();                       
                     }
                     client.Close();

@@ -10,32 +10,27 @@ namespace Console_NET_Project.Model.People.Kitchen
 {
     public class Cook : Person
     {
-        public Cook()
+        public Cook(int id)
         {
             IsBusy = false;
+            Id = Id;
         }
         public void Cooking(List<Command> listCommand, List<Cook> listCook, List<GroupCustomer> listGroupCustomers)
         {
-            //listGroupCustomers.Count != 0
             while (!SocketServer._leave)
             {
                 foreach (var list in listCommand.ToList())
                 {
-                    Thread.Sleep(500);
                     if (list.IsReady == "In progress")
                     {
+                        Thread.Sleep(2000);
                         var chooseCookQuery = (from cook in listCook where cook.IsBusy == true select cook).FirstOrDefault();
                         if(chooseCookQuery != null)
                         {
-                            Console.WriteLine("preparation plat");
-                            Thread.Sleep(500);
+                            Console.WriteLine("Le cuisinier n°" + chooseCookQuery.Id + " prépare le plat : " + list.Dishes);
                             list.IsReady = "Yes";
-                            chooseCookQuery.IsBusy = true;
+                            chooseCookQuery.IsBusy = false;
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Rien a préparer");
                     }
                 }
             }

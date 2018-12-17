@@ -31,18 +31,13 @@ namespace Console_NET_Project.Model.DinnerRoom
             {
                 foreach (GroupCustomer list in listGroupCustomerOnTable.ToList())
                 {
+                    Thread.Sleep(1500);
                     if (list.IsServed == false && list != null)
                     {
-                        Thread.Sleep(500);
-                        Console.WriteLine("prise de commande");
                         IsBusy = true;
-                        listCommand.Add(new Command(GroupCustomer.ChooseDishes(), list.Id));
+                        listCommand.Add(new Command(GroupCustomer.ChooseDishes(), list.Id, 23));
                         list.IsServed = true;
-                    }
-                    else
-                    {
-                        Thread.Sleep(500);
-                        Console.WriteLine("ca marche");
+                        Console.WriteLine("Le chef de rang a pris la commande du groupe n°" + list.Id);
                     }
                 }
             }

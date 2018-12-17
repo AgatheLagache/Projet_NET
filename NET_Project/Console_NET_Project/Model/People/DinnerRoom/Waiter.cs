@@ -10,9 +10,10 @@ namespace Console_NET_Project.Model.People.DinnerRoom
 {
     public class Waiter : Person
     {
-        public Waiter()
+        public Waiter(int id)
         {
             IsBusy = true;
+            Id = id;
         }
         public void PutSomething(List<Command> listCommand, List<Table> listTable)
         {
@@ -23,17 +24,15 @@ namespace Console_NET_Project.Model.People.DinnerRoom
                     if(list.IsReady == "Yes")
                     {
                         IsBusy = false;
-                        Thread.Sleep(500);
+                        Thread.Sleep(1500);
                         var groupCustomerQuery = (from groups in listGroupCustomerOnTable where groups.Id == list.NumeroGroup select groups).FirstOrDefault();
-                        list.IsReady = "Served";
-                        IsBusy = true;
-                        Console.WriteLine("Plat servi");
-                        GroupCustomer.ExitRestaurant(groupCustomerQuery.Id, listTable);
-                    }
-                    else
-                    {
-                        Thread.Sleep(500);
-                        Console.WriteLine("Aucun plat dans l'état yes");
+                        if(groupCustomerQuery != null)
+                        {
+                            list.IsReady = "Served";
+                            IsBusy = true;
+                            Console.WriteLine("Un serveur a servi le plat " + list.Dishes + " à la table n°" + groupCustomerQuery.NumeroTable);
+                            GroupCustomer.ExitRestaurant(groupCustomerQuery.Id, listTable);
+                        }
                     }
                 }
             }
