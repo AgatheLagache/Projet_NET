@@ -25,13 +25,13 @@ namespace WPF_NET_Project
         public MainWindow()
         {
             InitializeComponent();
-            //List<Scenario> scenarioList = History.GetAllScenarioFromDB();
-            //Scenario_Choice.ItemsSource = scenarioList;
-            //Scenario_Choice.SelectedItem = scenarioList.First();
+            List<Scenario> scenarioList = History.GetAllScenarioFromDB();
+            Scenario_Choice.ItemsSource = scenarioList;
+            Scenario_Choice.SelectedItem = scenarioList.First();
 
             ////Scenario_Choice.SelectedItem = scenarioList.Where(i => i.id == 2).FirstOrDefault();
 
-            //Scenario_Choice.DisplayMemberPath = "titre";
+            Scenario_Choice.DisplayMemberPath = "titre";
         }
 
         private void Start_Simulation_Click(object sender, RoutedEventArgs e)

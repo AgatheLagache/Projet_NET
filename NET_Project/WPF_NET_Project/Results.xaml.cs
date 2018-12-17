@@ -44,9 +44,21 @@ namespace WPF_NET_Project
             /*
              * byte[] nbGroupCustomer = Encoding.ASCII.GetBytes(Parametres.NumberGroupCustomer.ToString());
             */
-            int nbGroupCustomer = rand.Next(3, 10);
+            int nbGroupCustomer = Parametres.NumberClients;
+            int nbCook = Parametres.NumberCooks;
+            int nbHeadWaiter = Parametres.NumberHeadwaiters;
+            int nbWaiter = Parametres.NumberWaiters;
+
             serverStream.Write(Encoding.ASCII.GetBytes(nbGroupCustomer.ToString()), 0, nbGroupCustomer.ToString().Length);
 
+            
+            serverStream.Write(Encoding.ASCII.GetBytes(nbCook.ToString()), 0, nbCook.ToString().Length);
+
+
+            serverStream.Write(Encoding.ASCII.GetBytes(nbHeadWaiter.ToString()), 0, nbHeadWaiter.ToString().Length);
+
+
+            serverStream.Write(Encoding.ASCII.GetBytes(nbWaiter.ToString()), 0, nbWaiter.ToString().Length);
             serverStream.Flush();
 
             thread.RunWorkerAsync();

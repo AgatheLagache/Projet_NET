@@ -46,8 +46,9 @@ namespace Console_NET_Project
                         */
 
                         int nbGroupCustomer = Int32.Parse(data);
-                        restaurant = new RestaurantModel(8, 2, 3, 2);
-                        restaurant.AfficherGroup(8);
+
+                        restaurant = new RestaurantModel(nbGroupCustomer, 2, 3, 2);
+                        restaurant.AfficherGroup(nbGroupCustomer);
                         restaurant.AfficherHeadWaiter(2);
                         restaurant.AfficherCook(3);
                         restaurant.AfficherWaiter(2);
