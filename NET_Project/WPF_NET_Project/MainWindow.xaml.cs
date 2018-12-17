@@ -18,9 +18,7 @@ namespace WPF_NET_Project
         //TcpClient clientSocket = new TcpClient();
 
         private Random nb_random = new Random();
-        private int Nb_Fast_Clients = 1;
-        private int Nb_Ordinary_Clients = 1;
-        private int Nb_Slow_Clients = 1;
+        private int Nb_Clients = 1;
         private int Nb_Waiters = 1;
         private int Nb_Cooks = 1;
         private int Nb_Headwaiters = 1;
@@ -105,9 +103,7 @@ namespace WPF_NET_Project
 
         private void Start_Simulation_Click(object sender, RoutedEventArgs e)
         {
-            if (int.TryParse(Nb_Fast_Clients_Choice.Text, out Nb_Fast_Clients)
-                && int.TryParse(Nb_Ordinary_Clients_Choice.Text, out Nb_Ordinary_Clients)
-                && int.TryParse(Nb_Slow_Clients_Choice.Text, out Nb_Slow_Clients)
+            if (int.TryParse(Nb_Clients_Choice.Text, out Nb_Clients)
                 && int.TryParse(Nb_Waiters_Choice.Text, out Nb_Waiters)
                 && int.TryParse(Nb_Cooks_Choice.Text, out Nb_Cooks)
                 && int.TryParse(Nb_Waiters_Choice.Text, out Nb_Waiters)
@@ -123,9 +119,7 @@ namespace WPF_NET_Project
                 Nb_Headwaiters_Random_Click(sender, e);
             }
 
-            Parametres.NumberFastClients = int.Parse(Nb_Fast_Clients_Choice.Text);
-            Parametres.NumberOrdinaryClients = int.Parse(Nb_Ordinary_Clients_Choice.Text);
-            Parametres.NumberSlowClients = int.Parse(Nb_Slow_Clients_Choice.Text);
+            Parametres.NumberClients = int.Parse(Nb_Clients_Choice.Text);
             Parametres.NumberWaiters = int.Parse(Nb_Waiters_Choice.Text);
             Parametres.NumberCooks = int.Parse(Nb_Cooks_Choice.Text);
             Parametres.NumberHeadwaiters = int.Parse(Nb_Waiters_Choice.Text);
@@ -137,9 +131,7 @@ namespace WPF_NET_Project
 
         private void Nb_Clients_Random_Click(object sender, RoutedEventArgs e)
         {
-            Nb_Fast_Clients_Choice.Text = nb_random.Next(1, 12).ToString();
-            Nb_Ordinary_Clients_Choice.Text = nb_random.Next(1, 12).ToString();
-            Nb_Slow_Clients_Choice.Text = nb_random.Next(1, 12).ToString();
+            Nb_Clients_Choice.Text = nb_random.Next(1, 12).ToString();
         }
 
         private void Nb_Waiters_Random_Click(object sender, RoutedEventArgs e)
@@ -163,27 +155,11 @@ namespace WPF_NET_Project
             }
         }
 
-        private void Nb_Fast_Clients_Choice_KeyDown(object sender, KeyEventArgs e)
+        private void Nb_Clients_Choice_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                Check_Int_Validity(Nb_Fast_Clients_Choice.Text, Nb_Fast_Clients);
-            }
-        }
-
-        private void Nb_Ordinary_Clients_Choice_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                Check_Int_Validity(Nb_Ordinary_Clients_Choice.Text, Nb_Ordinary_Clients);
-            }
-        }
-
-        private void Nb_Slow_Clients_Choice_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                Check_Int_Validity(Nb_Slow_Clients_Choice.Text, Nb_Slow_Clients);
+                Check_Int_Validity(Nb_Clients_Choice.Text, Nb_Clients);
             }
         }
 
